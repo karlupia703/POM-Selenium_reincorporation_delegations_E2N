@@ -5,7 +5,7 @@
     <classes>
       <class name="Test.loginTest">
         <methods>
-          <include name="loginuser"/>
+          <include name="loginuser" invocation-numbers="0"/>
           <include name="setup"/>
         </methods>
       </class> <!-- Test.loginTest -->

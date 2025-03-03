@@ -25,6 +25,7 @@ public class loginTest {
     public String language;
 	private Map<String, String> languageMap = new HashMap<>(); 
 	
+	
 	@BeforeTest
     public void setup() {
         driver = DriverManager.getDriver(); // Use shared driver
@@ -49,17 +50,11 @@ public class loginTest {
         this.language = language;
     }
    
-//    @BeforeTest
-//    public void setup() {
-//        driver = DriverManager.getDriver(); // Use shared driver
-//        driver.get("http://localhost:3000/reinstatement-responsibles");
-//        page = new loginPages(driver); // Initialize the page object
-//    }
    
   @DataProvider(name = "languageProvider")
   public Object[][] languageProvider() {
       return new Object[][] {
-       {"en_US"}, 
+         {"es_ES"}, 
   //     {"pt_BR"}, 
   //     {"en_US"}
   //     {"es_ES"}
@@ -116,9 +111,9 @@ public class loginTest {
       }
   }
 
-  // Helper method to handle Google login
-  public void handleGoogleLogin() throws InterruptedException {
-      String originalWindow = driver.getWindowHandle(); // Store the current window
+       // Helper method to handle Google login
+      public void handleGoogleLogin() throws InterruptedException {
+       String originalWindow = driver.getWindowHandle(); // Store the current window
 
       // Wait for the new window to open
       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15)); // Increase timeout
@@ -135,11 +130,11 @@ public class loginTest {
 
    // Perform Google login actions
     Thread.sleep(3000);
-    page.enterEmailField("zenmonk-developer-zenmonk@zenmonk.tech"); //zenmonk-developer-zenmonk@zenmonk.tech
+    page.enterEmailField("rajni.1156@zenmonk.tech"); //zenmonk-developer-zenmonk@zenmonk.tech
     Thread.sleep(2000);
     page.clickOnEmailNextBtn();
     Thread.sleep(3000);
-    page.enterPasswordField("a2fiEz5Sx2LzRiJ"); //a2fiEz5Sx2LzRiJ
+    page.enterPasswordField("Rajnikar2022"); //a2fiEz5Sx2LzRiJ
     Thread.sleep(2000);
     page.clickOnPasswordNextBtn();
     Thread.sleep(3000);

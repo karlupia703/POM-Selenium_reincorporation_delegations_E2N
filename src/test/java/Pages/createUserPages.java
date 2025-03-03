@@ -50,7 +50,7 @@ public class createUserPages {
     By successmessage = By.cssSelector("#notistack-snackbar .MuiBox-root");
  
           
-   // Locators for edit user field
+    // Locators for edit user field
     By findFirstRow = By.cssSelector("[data-test-id*='-editicon-desktoptable-']");
     By lastNameField = By.xpath("/html/body/div[5]/div[3]/div[2]/div/form/div[2]/div/input");
     By editbutton = By.xpath("/html/body/div[5]/div[3]/div[3]/button[2]");
@@ -211,7 +211,7 @@ public class createUserPages {
         editBtn.click();
     }
   
-    ////Assertion method edit     
+    //Assertion method edit     
     public boolean isCheckEditCancelAlertTitle(String expectedText) {
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     	return wait.until(ExpectedConditions.textToBe(editCancelAlertTitle, expectedText));
@@ -236,8 +236,8 @@ public class createUserPages {
     	}
       
         
-    // Method of View User  
-    public void clickOnViewIcon1() {
+      // Method of View User  
+      public void clickOnViewIcon1() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement findFirstRow1 = wait.until(ExpectedConditions.presenceOfElementLocated((By) findFirstRowViewIcon));
         wait.until(ExpectedConditions.elementToBeClickable(findFirstRowViewIcon)).click();

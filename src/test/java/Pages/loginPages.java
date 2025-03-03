@@ -21,7 +21,7 @@ public class loginPages {
 
     // Selectors
     By LanguageField = By.cssSelector("[data-test-id=\"login-language-select\"]");
-  //  By outSide = By.tagName("body");
+    //  By outSide = By.tagName("body");
     By GoogleField = By.cssSelector("[data-test-id=\"login-button-text\"]");
     By signInWithGoogleText = By.cssSelector("[data-test-id=\"login-button-text\"]");
   	By Email = By.xpath("//input[@type='email']");
@@ -31,8 +31,8 @@ public class loginPages {
     By selectedLanguage = By.cssSelector("[data-test-id=\"login-language-select\"]"); // Change this to the correct selector for language displayed text
     By LanguageOption = By.cssSelector("[data-value='en_US'], [data-value='pt_BR'], [data-value='it_IT']"); // Add other languages as required
     
-//	By Email = By.xpath("//input[@type='email']");
-//	By emailNextBtn = By.xpath("//span[text()='Next']");
+    //	By Email = By.xpath("//input[@type='email']");
+    //	By emailNextBtn = By.xpath("//span[text()='Next']");
 	By Password = By.xpath("//input[@type='password']");
 	By passwordNextBtn = By.xpath("//span[text()='Next']");
 
@@ -47,9 +47,9 @@ public class loginPages {
         driver.findElement(LanguageField).click();
     }
 
-//   public void clickonOutside() {
-//	   driver.findElement(outSide).click();
-//   }
+    //   public void clickonOutside() {
+    //	   driver.findElement(outSide).click();
+    //   }
    
     
     // Method to get the selected language text
@@ -115,6 +115,4 @@ public class loginPages {
       return getElementText(AccessWithGoogleText).equals(expectedText);
   }
 }
-
-
 
