@@ -1,16 +1,16 @@
-package Test;
+
+package page_function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 
 public class Maindriverclass {
 
 	private static org.openqa.selenium.By findFirstRow;
 	private static final By By = findFirstRow;
 	public static WebDriver driver;
-    public static String language = "en_US";  //{"Español"},{"en_US"},{"pt_BR"},{"it_IT"} 
+    public static String language = "Español";  //{"Español"},{"en_US"},{"pt_BR"},{"it_IT"} 
     
     @BeforeClass
     public void setupLanguage() {
@@ -41,19 +41,19 @@ public class Maindriverclass {
         createUserTest.deleteUser(language);
         Thread.sleep(2000);
        
-       createUserTest.testcaseOfFilter();
-       Thread.sleep(3000);
+        createUserTest.testcaseOfFilter();
+        Thread.sleep(3000);
      
-       createUserTest.searchUser1();
-       Thread.sleep(3000);
+        createUserTest.searchUser1();
+        Thread.sleep(3000);
      
-       createUserTest.pagination();
-       Thread.sleep(3000);
+        createUserTest.pagination();
+        Thread.sleep(3000);
      
-       createUserTest.testAlreadyExistUser();
-       Thread.sleep(3000);
+        createUserTest.testAlreadyExistUser();
+        Thread.sleep(3000);
       
-       System.out.println("Main method execution complete.");
+        System.out.println("Main method execution complete.");
     }
          	
     }

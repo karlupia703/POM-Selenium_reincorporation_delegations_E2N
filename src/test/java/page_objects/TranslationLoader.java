@@ -1,4 +1,4 @@
-package Pages;
+package page_objects;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;

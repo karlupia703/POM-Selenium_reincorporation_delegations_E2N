@@ -1,23 +1,18 @@
-package Test;
+package page_function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import page_objects.loginPages;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import org.openqa.selenium.By;
-
-
-
-import Pages.loginPages;
 
 public class loginTest {
     WebDriver driver;
@@ -54,7 +49,7 @@ public class loginTest {
   @DataProvider(name = "languageProvider")
   public Object[][] languageProvider() {
       return new Object[][] {
-         {"es_ES"}, 
+         {"en_US"}, 
   //     {"pt_BR"}, 
   //     {"en_US"}
   //     {"es_ES"}
@@ -130,12 +125,12 @@ public class loginTest {
 
    // Perform Google login actions
     Thread.sleep(3000);
-    page.enterEmailField("rajni.1156@zenmonk.tech"); //zenmonk-developer-zenmonk@zenmonk.tech
+    page.enterEmailField("zenmonk-developer-zenmonk@zenmonk.tech"); //zenmonk-developer-zenmonk@zenmonk.tech
     Thread.sleep(2000);
     page.clickOnEmailNextBtn();
     Thread.sleep(3000);
-    page.enterPasswordField("Rajnikar2022"); //a2fiEz5Sx2LzRiJ
-    Thread.sleep(2000);
+    page.enterPasswordField("a2fiEz5Sx2LzRiJ"); //a2fiEz5Sx2LzRiJ
+    Thread.sleep(3000);
     page.clickOnPasswordNextBtn();
     Thread.sleep(3000);
     

@@ -1,37 +1,26 @@
 
-package Test;
+package page_function;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.github.javafaker.Faker;
-import com.github.javafaker.File;
-
-//import Pages.MessageUtils;
-import Pages.TranslationLoader;
-import Pages.createUserPages;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
+import page_objects.*;
 import java.time.Duration;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class createUserTest {
     private static org.openqa.selenium.By test;
+//    private static org.openqa.selenium.By Pages_Objects;
 	private static final By By = test;
 	WebDriver driver;
     Faker faker = new Faker();
@@ -83,7 +72,8 @@ public class createUserTest {
     }
   
     void createUser(String targetLanguage, String firstName, String lastName, String email) throws InterruptedException {
-        Pages.createUserPages user = new Pages.createUserPages(driver);
+
+        page_objects.createUserPages user = new page_objects.createUserPages(driver);
         Map<String, String> expectedTexts = supportedTranslations.get(targetLanguage);
  
         user.clickOnCreateButton();
@@ -118,7 +108,7 @@ public class createUserTest {
     	driver = DriverManager.getDriver();
         Faker faker = new Faker();
         String updatedLastName = faker.name().lastName();
-        Pages.createUserPages userPage = new Pages.createUserPages(driver);
+        page_objects.createUserPages userPage = new page_objects.createUserPages(driver);
         Map<String, String> expectedTexts = supportedTranslations.get(targetLanguage);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -143,7 +133,7 @@ public class createUserTest {
    
     @Test(priority = 3, enabled = true)
     public void viewUser() throws InterruptedException {
-        Pages.createUserPages userPage2 = new Pages.createUserPages(driver);
+        page_objects.createUserPages userPage2 = new page_objects.createUserPages(driver);
         
         userPage2.clickOnViewIcon1();
         Thread.sleep(2000);
@@ -166,9 +156,10 @@ public class createUserTest {
         // Perform delete action
         userPage3.clickDeleteButton();
         Assert.assertTrue(userPage3.isCheckDeleteAlertTitle(expectedTexts.get("deletealerttitle")),"Delete alert title does not match for " + targetLanguage + ".");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
+        
         Assert.assertTrue(userPage3.isCheckDeleteAlertContent(expectedTexts.get("deletebody")), "Body does not match for " + targetLanguage + ".");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         System.out.println("Delete Assertions passed for language: " + targetLanguage);
         
         userPage3.confirmDeletion();
@@ -211,7 +202,6 @@ public class createUserTest {
     
     @Test(priority = 6, enabled = true)
     public void searchUser1() throws InterruptedException {
-        // Initialize the page object
         createUserPages userPage = new createUserPages(driver);
 
         // Locate the first row in the table

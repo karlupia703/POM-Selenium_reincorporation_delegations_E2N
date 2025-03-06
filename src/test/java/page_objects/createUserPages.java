@@ -1,5 +1,5 @@
 
-package Pages;
+package page_objects;
 
 import java.time.Duration;
 import java.util.List;
@@ -9,24 +9,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class createUserPages {
-
     WebDriver driver;
 	private WebDriverWait wait;
-
+		 
     // Constructor
-    public createUserPages(WebDriver driver) {
-        this.driver = driver;
+public createUserPages(WebDriver driver) {
+    this.driver = driver;
         PageFactory.initElements(driver, this);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -48,8 +44,7 @@ public class createUserPages {
     By sumbit = By.cssSelector("[data-test-id=\"custombtn-modal-responsibleform-create-submit\"]");
     //Snackbar message
     By successmessage = By.cssSelector("#notistack-snackbar .MuiBox-root");
- 
-          
+           
     // Locators for edit user field
     By findFirstRow = By.cssSelector("[data-test-id*='-editicon-desktoptable-']");
     By lastNameField = By.xpath("/html/body/div[5]/div[3]/div[2]/div/form/div[2]/div/input");
@@ -60,7 +55,6 @@ public class createUserPages {
     By editCancelAlertContent = By.cssSelector("[data-test-id=\"dialogBox-content-alertBox-responsiblitiesform-edit\"]");
     //Message of Snack bar
     By editsnackbarmessage = By.xpath("(//div[@class='notistack-Snackbar go3963613292'])[1]");
-
     
     // Locators for view user field  
     By findFirstRowViewIcon = By.cssSelector("[data-test-id*='-viewicon-desktoptable-']");
@@ -87,17 +81,15 @@ public class createUserPages {
     private By inactiveOption = By.cssSelector("[data-test-id=\"filterchip-menu-item-false-filter-status-page-reinstatement\"]");
  
     
-    // Locators for Search
+    //Locators for Search
     private By tableBody = By.cssSelector("[data-test-id='tablebody-desktoptable-reinstatement-responsibles-table-list-page-reinstatement']");
     private By searchInput = By.xpath("/html/body/div[1]/div/div[2]/div/div/div[2]/div[1]/div[1]/div[2]/input");
     private By clearSearchIcon = By.cssSelector("[data-test-id=\"icon-clear-searchbar-page-reinstatement\"]");
  
-    
     //Locators for pagination
     private By rightArrow = By.cssSelector("[data-testid='KeyboardArrowRightIcon']");
     private By leftArrow = By.cssSelector("[data-testid='KeyboardArrowLeftIcon']");
 
-    
     //Locators for User already exist
     private By createButton = By.xpath("/html/body/div[1]/div/div[2]/div/div/div[1]/button");
     private By firstNameField = By.xpath("/html/body/div[5]/div[3]/div[2]/div/form/div[1]");
@@ -124,7 +116,7 @@ public class createUserPages {
         driver.findElement(insidebtn).click();
     }
    
-  //Assertions Method to get the text of an element
+    //Assertions Method to get the text of an element
     public String getElementText(By selector) {
        return driver.findElement(selector).getText().trim();
    }
@@ -177,7 +169,6 @@ public class createUserPages {
             System.out.println("No options available in the dropdown.");
         }
     }
-
     public void clickOnSubmitBtn() {
         driver.findElement(sumbit).click();
     }
@@ -212,7 +203,7 @@ public class createUserPages {
     }
   
     //Assertion method edit     
-    public boolean isCheckEditCancelAlertTitle(String expectedText) {
+     public boolean isCheckEditCancelAlertTitle(String expectedText) {
     	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     	return wait.until(ExpectedConditions.textToBe(editCancelAlertTitle, expectedText));
      // return getElementText(editCancelAlertTitle).equals(expectedText);
@@ -223,13 +214,13 @@ public class createUserPages {
         return getElementText(editCancelAlertContent).equals(expectedText);
     }
 
-      public void clickOnConfirmDialogBox() {
+     public void clickOnConfirmDialogBox() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement confirmDialog = wait.until(ExpectedConditions.elementToBeClickable(confirmdialogbox));
         confirmDialog.click();
     }
             
-      public String getSnackbarSuccessMessage() {
+     public String getSnackbarSuccessMessage() {
     	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     	    WebElement snackbar = wait.until(ExpectedConditions.visibilityOfElementLocated(editsnackbarmessage));
     	    return snackbar.getText();
@@ -245,19 +236,17 @@ public class createUserPages {
       public void clickOnViewCrossIcon() {
     	driver.findElement(crossIconView).click();
     }      
-        
-	    public void waitForTableToLoad() {
+      public void waitForTableToLoad() {
 		// TODO Auto-generated method stub
 	}		
 		
-	    
 	    // Methods of Delete User
 	    public void clickDeleteButton() {
 	        WebElement firstRowDeleteButton = driver.findElement(deleteButton);
 	        firstRowDeleteButton.click();
 	    }
 
-	    //Assertion for delete user----
+	    //Assertion for delete user
 	    public boolean isCheckDeleteAlertTitle(String expectedText) {
 	    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	        return getElementText(deleteAlertTitle).equals(expectedText);
@@ -290,7 +279,6 @@ public class createUserPages {
 		    	WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
 		        return wait1.until(ExpectedConditions.visibilityOfElementLocated(notification2)).getText();
 		    }
-
 
 	    
 	   //Methods of filters
